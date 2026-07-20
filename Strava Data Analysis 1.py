@@ -11,7 +11,7 @@ dir = os.path.dirname(path)
 dir = dir.replace('Strava Data Analysis Project 1', 'Run Data')
 
 print(dir)
-
+os.chdir(dir)
 print("yeah")
 
 
