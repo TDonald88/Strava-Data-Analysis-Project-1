@@ -13,7 +13,7 @@ dir = dir.replace('Strava Data Analysis Project 1', 'Run Data')
 print(dir)
 os.chdir(dir)
 
-Data_read = pd.read_excel('Test_Spreadsheet.xlsx')
+Data_read = pd.read_excel('Test_Spreadsheet.xlsx', engine='openpyxl')
 print(Data_read)
 
 
