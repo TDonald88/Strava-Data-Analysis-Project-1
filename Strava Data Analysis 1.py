@@ -1,6 +1,7 @@
 
 import numpy as np
 import pandas as pd
+import matplotlib as plt
 import os
 
 print("aight")
@@ -13,8 +14,8 @@ dir = dir.replace('Strava Data Analysis Project 1', 'Run Data')
 print(dir)
 os.chdir(dir)
 
-Data_read = pd.read_excel('YL_5K.xlsx', engine='openpyxl')
-print(Data_read)
+Run_Data = pd.read_excel('YL_5K.xlsx', engine='openpyxl')
+print(Run_Data)
 
 
 
