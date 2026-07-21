@@ -1,7 +1,7 @@
 
 import numpy as np
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import os
 
 print("aight")
@@ -16,6 +16,13 @@ os.chdir(dir)
 
 Run_Data = pd.read_excel('YL_5K.xlsx', engine='openpyxl')
 print(Run_Data)
+
+X_axis = Run_Data['ns1:Time']
+Y_axis = Run_Data['ns2:Speed']
+
+plt.plot(X_axis, Y_axis)
+plt.show()
+
 
 
 
