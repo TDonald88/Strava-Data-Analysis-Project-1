@@ -29,8 +29,10 @@ plt.ylabel('Altitude (feet)')
 plt.fill_between(X_axis, Y_axis, np.min(Y_axis), color='green')
 plt.show()
 
-Time = Run_Data['ns1:Time'].str.replace('Z', '')
-Time = Time.str.replace('2026-06-06T', '')
+# Time = Run_Data['ns1:Time'].str.replace('Z', '')
+# Time = Time.str.replace('2026-06-06T', '')
+Time = Run_Data['ns1:Time'].str.replace({"2026-06-06T": "",
+                                         "Z": ""})
 print(Time)
 
 
