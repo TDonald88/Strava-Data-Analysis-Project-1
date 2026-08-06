@@ -30,11 +30,23 @@ plt.fill_between(X_axis, Y_axis, np.min(Y_axis), color='green')
 plt.show()
 
 
-Time = Run_Data['ns1:Time'].str.replace({"2026-06-06T": "",
+Time1 = Run_Data['ns1:Time'].str.replace({"2026-06-06T": "",
                                          "Z": ""})
 # print(Time)
 
-Dist = Run_Data['ns1:DistanceMeters2']
+Dist = Run_Data['ns1:DistanceMeters2']/1609 #in miles
 
+Time_tot = Run_Data['ns1:TotalTimeSeconds']
+Time = np.arange(0, len(Dist))
+
+Pace = Run_Data['ns2:Speed'] * (60/1609)
+Pace[Pace != 0] = 1/Pace
+
+plt.plot(Dist, Pace, Y_axis)
+plt.ylim(13, 2)
+plt.title('Pace Over Distance')
+plt.xlabel('Distance (miles)')
+plt.ylabel('Pace (min/mile)')
+plt.show()
 
 
