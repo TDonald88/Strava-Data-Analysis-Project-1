@@ -6,12 +6,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-X = np.array([1, 2, 3, 4, 5, 6, 7])
+A = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]) # speed
+B = np.arange(0, 3, 0.2) # dist
+print(A)
+print(B)
+
+Splits = []
+
+C = np.mean(A[2:4])
+
+for i in range(len(B)):
+    if B[i] == np.floor(B[i]) and B[i] != 0:
+        Splits.append(np.mean(A[(int(B[i]-1)):i]))
+
+print(Splits)
+
+'''
+X = np.array([1, 2, 3, 4, 5, 6, 7]) # test plot
 Y = np.array([5, 6, 3, 4, 8, 12, 4])
 
 plt.plot(X, Y)
 plt.show()
-
+'''
 
 '''
 fold = os.path.dirname(os.path.realpath(__file__)) # File Search and read Test
