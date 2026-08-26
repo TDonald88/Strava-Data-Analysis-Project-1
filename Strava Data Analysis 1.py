@@ -69,4 +69,18 @@ for n in range(int(np.floor(Dist_clean.min())), int(np.ceil(Dist_clean.max())) +
 
 print(Splits)
 
+Mile_Markers = np.arange(1, Tot_dist + 1, 1)
+Mile_Markers[Mile_Markers == np.max(Mile_Markers)] = Tot_dist
+print(Mile_Markers)
+
+plt.bar(Mile_Markers, Splits)
+plt.title('Splits')
+plt.xlabel('Distance')
+plt.ylabel('Pace')
+plt.show()
+
+
+
+
+
 
