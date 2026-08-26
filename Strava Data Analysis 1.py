@@ -56,12 +56,16 @@ Tot_dist = np.max(Dist)
 Avg_Pace = np.mean(Pace)
 print(Avg_Pace)
 
+first_valid = np.flatnonzero(Dist != 0)[0]
+Pace_clean = Pace[first_valid:].to_numpy()
+Dist_clean = Dist[first_valid:].to_numpy()
+
 Splits = []
 
-for n in range(int(np.floor(Dist.min())), int(np.ceil(Dist.max())) + 1):
-    index = np.where((Dist >= n) & (Dist < n + 1))[0]
+for n in range(int(np.floor(Dist_clean.min())), int(np.ceil(Dist_clean.max())) + 1):
+    index = np.where((Dist_clean >= n) & (Dist_clean < n + 1))[0]
     if len(index) > 0:
-        Splits.append(float(Pace[index].mean()))
+        Splits.append(float(Pace_clean[index].mean()))
 
 print(Splits)
 
