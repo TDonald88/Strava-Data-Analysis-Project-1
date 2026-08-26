@@ -56,9 +56,13 @@ Tot_dist = np.max(Dist)
 Avg_Pace = np.mean(Pace)
 print(Avg_Pace)
 
-#for i in range(len(Dist)):
-#    if Dist[i] > 
+Splits = []
 
-#print(Splits)
+for n in range(int(np.floor(Dist.min())), int(np.ceil(Dist.max())) + 1):
+    index = np.where((Dist >= n) & (Dist < n + 1))[0]
+    if len(index) > 0:
+        Splits.append(float(Pace[index].mean()))
+
+print(Splits)
 
 
