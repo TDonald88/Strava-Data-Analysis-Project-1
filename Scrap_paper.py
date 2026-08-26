@@ -13,13 +13,21 @@ print(B)
 
 Splits = []
 
-C = np.mean(A[2:4])
-
-for i in range(len(B)):
-    if B[i] == np.floor(B[i]) and B[i] != 0:
-        Splits.append(np.mean(A[(int(B[i]-1)):i]))
+for n in range(int(np.floor(B.min())), int(np.ceil(B.max())) + 1):
+    index = np.where((B >= n) & (B < n + 1))[0]
+    if len(index) > 0:
+        Splits.append(float(A[index].mean()))
 
 print(Splits)
+
+#C = np.mean(A[int(B[2]):5])
+#print(np.where(B == 2))
+
+#for i in range(len(B)):
+#    if B[i] == np.floor(B[i]) and B[i] != 0:
+#        Splits.append(np.mean(A[(int(B[i]-1)):i]))
+
+#print(Splits)
 
 '''
 X = np.array([1, 2, 3, 4, 5, 6, 7]) # test plot
