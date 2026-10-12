@@ -54,7 +54,7 @@ Pace[Pace != 0] = 1/Pace
 
 Tot_dist = np.max(Dist)
 Avg_Pace = np.mean(Pace)
-print(Avg_Pace)
+#print(Avg_Pace)
 
 first_valid = np.flatnonzero(Dist != 0)[0]
 Pace_clean = Pace[first_valid:].to_numpy()
