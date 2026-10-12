@@ -67,6 +67,7 @@ for n in range(int(np.floor(Dist_clean.min())), int(np.ceil(Dist_clean.max())) +
     if len(index) > 0:
         Splits.append(float(Pace_clean[index].mean()))
 
+
 print(Splits)
 
 Splits_displ = np.array(Splits, dtype = float)
@@ -78,11 +79,13 @@ print(Splits_displ1)
 
 Mile_Markers = np.arange(1, Tot_dist + 1, 1)
 Mile_Markers[Mile_Markers == np.max(Mile_Markers)] = Tot_dist
+Mile_Markers = np.round(Mile_Markers, 3)
 print(Mile_Markers)
 
 bar_positions = np.arange(len(Splits))
 
-plt.bar(bar_positions, Splits)
+bars = plt.bar(bar_positions, Splits)
+plt.bar_label(bars, labels = Splits_displ1)
 plt.xticks(bar_positions, Mile_Markers) # labels = mile markers
 plt.title('Splits')
 plt.xlabel('Distance (miles)')
