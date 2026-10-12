@@ -69,14 +69,24 @@ for n in range(int(np.floor(Dist_clean.min())), int(np.ceil(Dist_clean.max())) +
 
 print(Splits)
 
+Splits_displ = np.array(Splits, dtype = float)
+Splits_displ = np.floor(Splits_displ)
+Splits_rem = np.int32(60 * (Splits - Splits_displ))
+Splits_displ1 = np.array([f"{int(m)}:{s:02d}" for m, s in zip(Splits_displ, Splits_rem)],
+                         dtype = object)
+print(Splits_displ1)
+
 Mile_Markers = np.arange(1, Tot_dist + 1, 1)
 Mile_Markers[Mile_Markers == np.max(Mile_Markers)] = Tot_dist
 print(Mile_Markers)
 
-plt.bar(Mile_Markers, Splits)
+bar_positions = np.arange(len(Splits))
+
+plt.bar(bar_positions, Splits)
+plt.xticks(bar_positions, Mile_Markers) # labels = mile markers
 plt.title('Splits')
-plt.xlabel('Distance')
-plt.ylabel('Pace')
+plt.xlabel('Distance (miles)')
+plt.ylabel('Pace (min/mile)')
 plt.show()
 
 
