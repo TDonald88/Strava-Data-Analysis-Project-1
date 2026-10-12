@@ -92,6 +92,19 @@ plt.xlabel('Distance (miles)')
 plt.ylabel('Pace (min/mile)')
 plt.show()
 
+# ---------- Map --------------------------
+
+Latitude = Run_Data['ns1:LatitudeDegrees']
+Longitude = Run_Data['ns1:LongitudeDegrees']
+
+plt.plot(Longitude, Latitude)
+plt.title('Map of Activity')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.show()
+
+
+
 
 
 
